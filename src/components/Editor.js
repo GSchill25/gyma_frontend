@@ -17,7 +17,7 @@ const mapDispatchToProps = dispatch => ({
   onRemoveTag: tag =>
     dispatch({ type: 'REMOVE_TAG', tag }),
   onSubmit: payload =>
-    dispatch({ type: 'ARTICLE_SUBMITTED', payload }),
+    dispatch({ type: 'WORKOUT_SUBMITTED', payload }),
   onUnload: payload =>
     dispatch({ type: 'EDITOR_PAGE_UNLOADED' }),
   onUpdateField: (key, value) =>
@@ -31,8 +31,7 @@ class Editor extends React.Component {
     const updateFieldEvent =
       key => ev => this.props.onUpdateField(key, ev.target.value);
     this.changeTitle = updateFieldEvent('title');
-    this.changeDescription = updateFieldEvent('description');
-    this.changeBody = updateFieldEvent('body');
+    this.changeSubtitle = updateFieldEvent('subtitle');
     this.changeTagInput = updateFieldEvent('tagInput');
 
     this.watchForEnter = ev => {
@@ -48,17 +47,16 @@ class Editor extends React.Component {
 
     this.submitForm = ev => {
       ev.preventDefault();
-      const article = {
+      const workout = {
         title: this.props.title,
-        description: this.props.description,
-        body: this.props.body,
+        subtitle: this.props.subtitle,
         tagList: this.props.tagList
       };
 
-      const slug = { slug: this.props.articleSlug };
-      const promise = this.props.articleSlug ?
-        agent.Articles.update(Object.assign(article, slug)) :
-        agent.Articles.create(article);
+      const slug = { slug: this.props.workoutSlug };
+      const promise = this.props.workoutSlug ?
+        agent.Workouts.update(Object.assign(workout, slug)) :
+        agent.Workouts.create(workout);
 
       this.props.onSubmit(promise);
     };
@@ -68,7 +66,7 @@ class Editor extends React.Component {
     if (this.props.params.slug !== nextProps.params.slug) {
       if (nextProps.params.slug) {
         this.props.onUnload();
-        return this.props.onLoad(agent.Articles.get(this.props.params.slug));
+        return this.props.onLoad(agent.Workouts.get(this.props.params.slug));
       }
       this.props.onLoad(null);
     }
@@ -76,7 +74,7 @@ class Editor extends React.Component {
 
   componentWillMount() {
     if (this.props.params.slug) {
-      return this.props.onLoad(agent.Articles.get(this.props.params.slug));
+      return this.props.onLoad(agent.Workouts.get(this.props.params.slug));
     }
     this.props.onLoad(null);
   }
@@ -101,7 +99,7 @@ class Editor extends React.Component {
                     <input
                       className="form-control form-control-lg"
                       type="text"
-                      placeholder="Article Title"
+                      placeholder="Workout Title"
                       value={this.props.title}
                       onChange={this.changeTitle} />
                   </fieldset>
@@ -110,19 +108,9 @@ class Editor extends React.Component {
                     <input
                       className="form-control"
                       type="text"
-                      placeholder="What's this article about?"
-                      value={this.props.description}
-                      onChange={this.changeDescription} />
-                  </fieldset>
-
-                  <fieldset className="form-group">
-                    <textarea
-                      className="form-control"
-                      rows="8"
-                      placeholder="Write your article (in markdown)"
-                      value={this.props.body}
-                      onChange={this.changeBody}>
-                    </textarea>
+                      placeholder="What's this workout about?"
+                      value={this.props.subtitle}
+                      onChange={this.changeSubtitle} />
                   </fieldset>
 
                   <fieldset className="form-group">
@@ -155,7 +143,7 @@ class Editor extends React.Component {
                     type="button"
                     disabled={this.props.inProgress}
                     onClick={this.submitForm}>
-                    Publish Article
+                    Publish Workout
                   </button>
 
                 </fieldset>

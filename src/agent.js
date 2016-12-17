@@ -5,7 +5,7 @@ import _superagent from 'superagent';
 
 const superagent = superagentPromise(_superagent, global.Promise);
 
-const API_ROOT = 'https://conduit.productionready.io/api';
+const API_ROOT = 'https://arcane-ridge-26432.herokuapp.com/api';
 
 const encode = encodeURIComponent;
 const responseBody = res => res.body;
@@ -44,39 +44,39 @@ const Tags = {
 };
 
 const limit = (count, p) => `limit=${count}&offset=${p ? p * count : 0}`;
-const omitSlug = article => Object.assign({}, article, { slug: undefined })
-const Articles = {
+const omitSlug = workout => Object.assign({}, workout, { slug: undefined })
+const Workouts = {
   all: page =>
-    requests.get(`/articles?${limit(10, page)}`),
+    requests.get(`/workouts?${limit(10, page)}`),
   byAuthor: (author, page) =>
-    requests.get(`/articles?author=${encode(author)}&${limit(5, page)}`),
+    requests.get(`/workouts?author=${encode(author)}&${limit(5, page)}`),
   byTag: (tag, page) =>
-    requests.get(`/articles?tag=${encode(tag)}&${limit(10, page)}`),
+    requests.get(`/workouts?tag=${encode(tag)}&${limit(10, page)}`),
   del: slug =>
-    requests.del(`/articles/${slug}`),
+    requests.del(`/workouts/${slug}`),
   favorite: slug =>
-    requests.post(`/articles/${slug}/favorite`),
+    requests.post(`/workouts/${slug}/favorite`),
   favoritedBy: (author, page) =>
-    requests.get(`/articles?favorited=${encode(author)}&${limit(5, page)}`),
+    requests.get(`/workouts?favorited=${encode(author)}&${limit(5, page)}`),
   feed: () =>
-    requests.get('/articles/feed?limit=10&offset=0'),
+    requests.get('/workouts/feed?limit=10&offset=0'),
   get: slug =>
-    requests.get(`/articles/${slug}`),
+    requests.get(`/workouts/${slug}`),
   unfavorite: slug =>
-    requests.del(`/articles/${slug}/favorite`),
-  update: article =>
-    requests.put(`/articles/${article.slug}`, { article: omitSlug(article) }),
-  create: article =>
-    requests.post('/articles', { article })
+    requests.del(`/workouts/${slug}/favorite`),
+  update: workout =>
+    requests.put(`/workouts/${workout.slug}`, { workout: omitSlug(workout) }),
+  create: workout =>
+    requests.post('/workouts', { workout })
 };
 
 const Comments = {
   create: (slug, comment) =>
-    requests.post(`/articles/${slug}/comments`, { comment }),
+    requests.post(`/workouts/${slug}/comments`, { comment }),
   delete: (slug, commentId) =>
-    requests.del(`/articles/${slug}/comments/${commentId}`),
-  forArticle: slug =>
-    requests.get(`/articles/${slug}/comments`)
+    requests.del(`/workouts/${slug}/comments/${commentId}`),
+  forWorkout: slug =>
+    requests.get(`/workouts/${slug}/comments`)
 };
 
 const Profile = {
@@ -89,7 +89,7 @@ const Profile = {
 };
 
 export default {
-  Articles,
+  Workouts,
   Auth,
   Comments,
   Profile,

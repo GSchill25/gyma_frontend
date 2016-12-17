@@ -9,7 +9,7 @@ import history from 'history';
 import store from './store';
 
 import App from './components/App';
-import Article from './components/Article';
+import Workout from './components/Workout';
 import Editor from './components/Editor';
 import Header from './components/Header';
 import Home from './components/Home';
@@ -28,7 +28,7 @@ ReactDOM.render((
         <Route path="register" component={Register} />
         <Route path="editor" component={Editor} />
         <Route path="editor/:slug" component={Editor} />
-        <Route path="article/:id" component={Article} />
+        <Route path="workout/:id" component={Workout} />
         <Route path="settings" component={Settings} />
         <Route path="@:username" component={Profile} />
         <Route path="@:username/favorites" component={ProfileFavorites} />

@@ -17,7 +17,7 @@ class ProfileFavorites extends Profile {
   componentWillMount() {
     this.props.onLoad(Promise.all([
       agent.Profile.get(this.props.params.username),
-      agent.Articles.favoritedBy(this.props.params.username)
+      agent.Workouts.favoritedBy(this.props.params.username)
     ]));
   }
 
@@ -32,7 +32,7 @@ class ProfileFavorites extends Profile {
           <Link
             className="nav-link"
             to={`@${this.props.profile.username}`}>
-            My Articles
+            My Workout
           </Link>
         </li>
 
@@ -40,7 +40,7 @@ class ProfileFavorites extends Profile {
           <Link
             className="nav-link active"
             to={`@${this.props.profile.username}/favorites`}>
-            Favorited Articles
+            Favorited Workouts
           </Link>
         </li>
       </ul>

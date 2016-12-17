@@ -5,26 +5,26 @@ import { connect } from 'react-redux';
 
 const mapDispatchToProps = dispatch => ({
   onClickDelete: payload =>
-    dispatch({ type: 'DELETE_ARTICLE', payload })
+    dispatch({ type: 'DELETE_WORKOUT', payload })
 });
 
-const ArticleActions = props => {
-  const article = props.article;
+const WorkoutActions = props => {
+  const workout = props.workout;
   const del = () => {
-    props.onClickDelete(agent.Articles.del(article.slug))
+    props.onClickDelete(agent.Workouts.del(workout.slug))
   };
   if (props.canModify) {
     return (
       <span>
 
         <Link
-          to={`/editor/${article.slug}`}
+          to={`/editor/${workout.slug}`}
           className="btn btn-outline-secondary btn-sm">
-          <i className="ion-edit"></i> Edit Article
+          <i className="ion-edit"></i> Edit Workout
         </Link>
 
         <button className="btn btn-outline-danger btn-sm" onClick={del}>
-          <i className="ion-trash-a"></i> Delete Article
+          <i className="ion-trash-a"></i> Delete Workout
         </button>
 
       </span>
@@ -37,4 +37,4 @@ const ArticleActions = props => {
   );
 };
 
-export default connect(() => ({}), mapDispatchToProps)(ArticleActions);
+export default connect(() => ({}), mapDispatchToProps)(WorkoutActions);

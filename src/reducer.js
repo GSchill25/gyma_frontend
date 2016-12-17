@@ -1,7 +1,7 @@
 'use strict';
 
-import article from './reducers/article';
-import articleList from './reducers/articleList';
+import workout from './reducers/workout';
+import workoutList from './reducers/workoutList';
 import auth from './reducers/auth';
 import { combineReducers } from 'redux';
 import common from './reducers/common';
@@ -12,8 +12,8 @@ import profileFavorites from './reducers/profileFavorites';
 import settings from './reducers/settings';
 
 export default combineReducers({
-  article,
-  articleList,
+  workout,
+  workoutList,
   auth,
   common,
   editor,

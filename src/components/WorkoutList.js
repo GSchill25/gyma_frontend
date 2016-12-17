@@ -1,20 +1,20 @@
 'use strict';
 
-import ArticlePreview from './ArticlePreview';
+import WorkoutPreview from './WorkoutPreview';
 import ListPagination from './ListPagination';
 import React from 'react';
 
-const ArticleList = props => {
-  if (!props.articles) {
+const WorkoutList = props => {
+  if (!props.workouts) {
     return (
       <div className="article-preview">Loading...</div>
     );
   }
 
-  if (props.articles.length === 0) {
+  if (props.workouts.length === 0) {
     return (
       <div className="article-preview">
-        No articles are here... yet.
+        No workouts are here... yet.
       </div>
     );
   }
@@ -22,18 +22,18 @@ const ArticleList = props => {
   return (
     <div>
       {
-        props.articles.map(article => {
+        props.workouts.map(workout => {
           return (
-            <ArticlePreview article={article} key={article.slug} />
+            <WorkoutPreview workout={workout} key={workout.slug} />
           );
         })
       }
 
       <ListPagination
-        articlesCount={props.articlesCount}
+        workoutsCount={props.workoutsCount}
         currentPage={props.currentPage} />
     </div>
   );
 };
 
-export default ArticleList;
+export default WorkoutList;

@@ -1,6 +1,6 @@
 'use strict';
 
-import ArticleList from './ArticleList';
+import WorkoutList from './WorkoutList';
 import React from 'react';
 import { Link } from 'react-router';
 import agent from '../agent';
@@ -52,7 +52,7 @@ const FollowUserButton = props => {
 };
 
 const mapStateToProps = state => ({
-  ...state.articleList,
+  ...state.workoutList,
   currentUser: state.common.currentUser,
   profile: state.profile
 });
@@ -74,7 +74,7 @@ class Profile extends React.Component {
   componentWillMount() {
     this.props.onLoad(Promise.all([
       agent.Profile.get(this.props.params.username),
-      agent.Articles.byAuthor(this.props.params.username)
+      agent.Workouts.byAuthor(this.props.params.username)
     ]));
   }
 
@@ -89,7 +89,7 @@ class Profile extends React.Component {
           <Link
             className="nav-link active"
             to={`@${this.props.profile.username}`}>
-            My Articles
+            My Workouts
           </Link>
         </li>
 
@@ -97,7 +97,7 @@ class Profile extends React.Component {
           <Link
             className="nav-link"
             to={`@${this.props.profile.username}/favorites`}>
-            Favorited Articles
+            Favorited Workouts
           </Link>
         </li>
       </ul>
@@ -147,9 +147,9 @@ class Profile extends React.Component {
                 {this.renderTabs()}
               </div>
 
-              <ArticleList
-                articles={this.props.articles}
-                articlesCount={this.props.articlesCount}
+              <WorkoutList
+                workouts={this.props.workouts}
+                workoutsCount={this.props.workoutsCount}
                 state={this.props.currentPage} />
             </div>
 

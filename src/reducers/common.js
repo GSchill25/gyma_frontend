@@ -1,7 +1,7 @@
 'use strict';
 
 const defaultState = {
-  appName: 'Conduit',
+  appName: 'Gymsta',
   token: null,
   viewChangeCounter: 0
 };
@@ -19,8 +19,8 @@ export default (state = defaultState, action) => {
       return { ...state, redirectTo: null };
     case 'LOGOUT':
       return { ...state, redirectTo: '/', token: null, currentUser: null };
-    case 'ARTICLE_SUBMITTED':
-      const redirectUrl = `article/${action.payload.article.slug}`;
+    case 'WORKOUT_SUBMITTED':
+      const redirectUrl = `workout/${action.payload.workout.slug}`;
       return { ...state, redirectTo: redirectUrl };
     case 'SETTINGS_SAVED':
       return {
@@ -36,9 +36,9 @@ export default (state = defaultState, action) => {
         token: action.error ? null : action.payload.user.token,
         currentUser: action.error ? null : action.payload.user
       };
-    case 'DELETE_ARTICLE':
+    case 'DELETE_WORKOUT':
       return { ...state, redirectTo: '/' };
-    case 'ARTICLE_PAGE_UNLOADED':
+    case 'WORKOUT_PAGE_UNLOADED':
     case 'EDITOR_PAGE_UNLOADED':
     case 'HOME_PAGE_UNLOADED':
     case 'PROFILE_PAGE_UNLOADED':
