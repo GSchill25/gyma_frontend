@@ -23,6 +23,12 @@ const WorkoutActions = props => {
           <i className="ion-edit"></i> Edit Workout
         </Link>
 
+        <Link
+          to={`/add_exercise/${workout.slug}`}
+          className="btn btn-outline-secondary btn-sm">
+          <i className="ion-edit"></i> Add Exercises
+        </Link>
+
         <button className="btn btn-outline-danger btn-sm" onClick={del}>
           <i className="ion-trash-a"></i> Delete Workout
         </button>

@@ -1,13 +1,11 @@
 'use strict';
 
-import WorkoutMeta from './WorkoutMeta';
-import CommentContainer from './CommentContainer';
+import WorkoutMeta from './Workout/WorkoutMeta';
+import ExerciseContainer from './ExerciseContainer';
 import { Link } from 'react-router';
 import React from 'react';
-import agent from '../../agent';
+import agent from '../agent';
 import { connect } from 'react-redux';
-import ExerciseList from '../ExerciseList';
-//import marked from 'marked'; markdown
 
 const mapStateToProps = state => ({
   ...state.workout,
@@ -16,17 +14,17 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onLoad: payload =>
-    dispatch({ type: 'WORKOUT_PAGE_LOADED', payload }),
+    dispatch({ type: 'EXERCISE_PAGE_LOADED', payload }),
   onUnload: () =>
     dispatch({ type: 'WORKOUT_PAGE_UNLOADED' })
 });
 
 class Workout extends React.Component {
   componentWillMount() {
+    window.console.log(this.props);
     this.props.onLoad(Promise.all([
-      agent.Workouts.get(this.props.params.id),
-      agent.Comments.forWorkout(this.props.params.id),
-      agent.Exercises.forWorkout(this.props.params.id)
+      agent.Workouts.get(this.props.params.slug),
+      agent.Exercises.forWorkout(this.props.params.slug)
     ]));
   }
 
@@ -79,22 +77,11 @@ class Workout extends React.Component {
 
           <hr />
 
-          <div className="article-actions">
-          </div>
-
           <div className="row">
-            <ExerciseList
+            <ExerciseContainer
               exercises={this.props.exercises || []}
               errors={this.props.exerciseErrors}
-              slug={this.props.params.id}
-              currentUser={this.props.currentUser} />
-          </div>
-
-          <div className="row">
-            <CommentContainer
-              comments={this.props.comments || []}
-              errors={this.props.commentErrors}
-              slug={this.props.params.id}
+              slug={this.props.params.slug}
               currentUser={this.props.currentUser} />
           </div>
         </div>

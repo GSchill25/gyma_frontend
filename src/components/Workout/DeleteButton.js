@@ -3,14 +3,22 @@ import agent from '../../agent';
 import { connect } from 'react-redux';
 
 const mapDispatchToProps = dispatch => ({
-  onClick: (payload, commentId) =>
-    dispatch({ type: 'DELETE_COMMENT', payload, commentId })
+  onClick: (payload, id, type) =>
+    dispatch({ type: type, payload, id })
 });
 
 const DeleteButton = props => {
   const del = () => {
-    const payload = agent.Comments.delete(props.slug, props.commentId);
-    props.onClick(payload, props.commentId);
+    if(props.commentId) {
+      var payload = agent.Comments.delete(props.slug, props.commentId);
+      var id = props.commentId
+      var type = 'DELETE_COMMENT'
+    } else if(props.exerciseId) {
+      var payload = agent.Exercises.delete(props.slug, props.exerciseId);
+      var id = props.exerciseId
+      var type = 'DELETE_EXERCISE'
+    }
+    props.onClick(payload, id, type);
   };
 
   if (props.show) {

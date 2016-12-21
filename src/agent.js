@@ -79,6 +79,15 @@ const Comments = {
     requests.get(`/workouts/${slug}/comments`)
 };
 
+const Exercises = {
+  create: (slug, exercise) =>
+    requests.post(`/workouts/${slug}/exercises`, { exercise }),
+  delete: (slug, exerciseId) =>
+    requests.del(`/workouts/${slug}/exercises/${exerciseId}`),
+  forWorkout: slug =>
+    requests.get(`/workouts/${slug}/exercises`)
+}
+
 const Profile = {
   follow: username =>
     requests.post(`/profiles/${username}/follow`),
@@ -93,6 +102,7 @@ export default {
   Auth,
   Comments,
   Profile,
+  Exercises,
   Tags,
   setToken: _token => { token = _token; }
 };
