@@ -6,8 +6,8 @@ import React from 'react';
 const ExerciseContainer = props => {
   if (props.currentUser) {
     return (
-      <div className="col-xs-12 col-md-8 offset-md-2">
-        <div>
+      <div className="ui centered grid">
+        <div className="fourteen wide tablet six wide computer column">
           <list-errors errors={props.errors}></list-errors>
           <ExerciseInput slug={props.slug} currentUser={props.currentUser} />
         </div>
@@ -20,8 +20,8 @@ const ExerciseContainer = props => {
     );
   } else { //if user needs to sign in
     return (
-      <div className="col-xs-12 col-md-8 offset-md-2">
-        <p>
+      <div className="ui centered grid">
+        <p className="fourteen wide tablet six wide computer column">
           <Link to="login">Sign in</Link>
           &nbsp;to add exercises.
         </p>

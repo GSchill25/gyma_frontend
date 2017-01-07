@@ -7,18 +7,16 @@ const Exercise = props => {
   const show = props.currentUser &&
     props.currentUser.username === exercise.author.username;
   return (
-    <div className="card">
-      <div className="card-block">
-        <p className="card-text">{exercise.etype}</p>
-        <p className="card-text">{exercise.name}</p>
-        <p className="card-text">{exercise.sets}</p>
-        <p className="card-text">{exercise.reps}</p>
-        <p className="card-text">{exercise.description}</p>
-      </div>
-      <div className="card-footer">
+    <tr>
+      <td className="card-text">{exercise.etype}</td>
+      <td className="card-text">{exercise.name}</td>
+      <td className="card-text">{exercise.sets}</td>
+      <td className="card-text">{exercise.reps}</td>
+      <td className="card-text">{exercise.description}</td>
+      <td>
         <DeleteButton show={show} slug={props.slug} exerciseId={exercise.id} />
-      </div>
-    </div>
+      </td>
+    </tr>
   );
 };
 

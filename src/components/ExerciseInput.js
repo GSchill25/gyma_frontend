@@ -59,58 +59,52 @@ class ExerciseInput extends React.Component {
 
   render() {
     return (
-      <form className="card comment-form" onSubmit={this.createExercise}>
-        <div className="card-block">
-          <fieldset className="form-group">
+      <form className="ui form" onSubmit={this.createExercise}>
+          <fieldset className="field">
             <input
-              className="form-control"
               type="text"
               placeholder="Type"
               value={this.state.etype}
               onChange={this.setType} />
           </fieldset>
 
-          <fieldset className="form-group">
+          <fieldset className="field">
             <input
-              className="form-control"
               type="text"
               placeholder="Exercise Name"
               value={this.state.name}
               onChange={this.setName} />
           </fieldset>
 
-          <fieldset className="form-group">
+          <fieldset className="field">
             <input
-              className="form-control"
               type="text"
               placeholder="Sets"
               value={this.state.sets}
               onChange={this.setSets} />
           </fieldset>
 
-          <fieldset className="form-group">
+          <fieldset className="field">
             <input
-              className="form-control"
               type="text"
               placeholder="Reps"
               value={this.state.reps}
               onChange={this.setReps} />
           </fieldset>
 
-          <textarea className="form-control"
+          <textarea className="field"
             placeholder="Write a description..."
             value={this.state.description}
             onChange={this.setDescription}
             rows="3">
           </textarea>
-        </div>
-        <div className="card-footer">
-          <button
-            className="btn btn-sm btn-primary"
-            type="submit">
-            Add Exercise
-          </button>
-        </div>
+          <div className="extra-content">
+            <button
+              className="btn btn-sm btn-primary"
+              type="submit">
+              Add Exercise
+            </button>
+          </div>
       </form>
     );
   }
