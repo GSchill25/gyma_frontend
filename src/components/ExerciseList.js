@@ -2,9 +2,13 @@ import Exercise from './Exercise';
 import React from 'react';
 
 const ExerciseList = props => {
+  
+  let width = (window.location.hash.indexOf('add_exercise') === -1) ? "twelve" : "ten"
+  let classes = `sixteen wide tablet ${width} wide computer column`
   return (
-    <div className="fourteen wide tablet ten wide computer column">
+    <div className={classes}>
       <table className="ui blue table">
+        {/*}
         <thead>
           <tr>
             <th>Type</th>
@@ -14,6 +18,7 @@ const ExerciseList = props => {
             <th>Description</th>
           </tr>
         </thead>
+      */}
         <tbody>
       {
         props.exercises.map(exercise => {

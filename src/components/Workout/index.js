@@ -45,14 +45,11 @@ class Workout extends React.Component {
       <div className="article-page">
 
         <div className="banner">
-          <div className="container">
 
             <h1>{this.props.workout.title}</h1>
             <WorkoutMeta
               workout={this.props.workout}
               canModify={canModify} />
-
-          </div>
         </div>
 
         <div className="container page">
@@ -64,10 +61,12 @@ class Workout extends React.Component {
                 {
                   this.props.workout.tagList.map(tag => {
                     return (
-                      <li
-                        className="tag-default tag-pill tag-outline"
+                      <li>
+                        <button 
+                        className="ui teal basic button"
                         key={tag}>
-                        {tag}
+                          {tag}
+                        </button>
                       </li>
                     );
                   })
@@ -79,15 +78,14 @@ class Workout extends React.Component {
 
           <hr />
 
-          <div className="article-actions">
-          </div>
-
           <div className="row">
-            <ExerciseList
-              exercises={this.props.exercises || []}
-              errors={this.props.exerciseErrors}
-              slug={this.props.params.id}
-              currentUser={this.props.currentUser} />
+            <div className="ui grid centered">
+              <ExerciseList
+                exercises={this.props.exercises || []}
+                errors={this.props.exerciseErrors}
+                slug={this.props.params.id}
+                currentUser={this.props.currentUser} />
+            </div>
           </div>
 
           <div className="row">

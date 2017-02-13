@@ -37,7 +37,7 @@ class App extends React.Component {
   render() {
     if (this.props.appLoaded) {
       return (
-        <div>
+        <div className="ui container">
           <Header
             appName={this.props.appName}
             currentUser={this.props.currentUser} />
@@ -46,7 +46,7 @@ class App extends React.Component {
       );
     }
     return (
-      <div>
+      <div className="ui container">
         <Header
           appName={this.props.appName}
           currentUser={this.props.currentUser} />

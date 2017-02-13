@@ -66,7 +66,7 @@ const mapDispatchToProps = dispatch => ({
 
 const MainView = props => {
   return (
-    <div className="col-md-9">
+    <div className="ui grid">
       <div className="feed-toggle">
         <ul className="nav nav-pills outline-active">
 

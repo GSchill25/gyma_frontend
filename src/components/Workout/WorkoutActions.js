@@ -15,25 +15,26 @@ const WorkoutActions = props => {
   };
   if (props.canModify) {
     return (
-      <span>
+      <div className="ui buttons">
+
 
         <Link
           to={`/editor/${workout.slug}`}
-          className="btn btn-outline-secondary btn-sm">
+          className="ui inverted button button-size-sm">
           <i className="ion-edit"></i> Edit Workout
         </Link>
 
         <Link
           to={`/add_exercise/${workout.slug}`}
-          className="btn btn-outline-secondary btn-sm">
+          className="ui inverted button button-size-sm">
           <i className="ion-edit"></i> Add Exercises
         </Link>
 
-        <button className="btn btn-outline-danger btn-sm" onClick={del}>
-          <i className="ion-trash-a"></i> Delete Workout
+        <button className="ui inverted red button button-size-sm" onClick={del}>
+          Delete Workout
         </button>
 
-      </span>
+      </div>
     );
   }
 

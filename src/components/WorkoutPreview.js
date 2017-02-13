@@ -35,44 +35,73 @@ const WorkoutPreview = props => {
   };
 
   return (
-    <div className="article-preview">
-      <div className="article-meta">
-        <Link to={`@${workout.author.username}`}>
-          <img src={workout.author.image} />
-        </Link>
-
-        <div className="info">
+    <div className="event">
+      <div className="ui card">
+        <div className="content">
+          <div className="right floated meta"> 
+            {new Date(workout.createdAt).toDateString()}
+          </div>
+          <img className="ui avatar image" src={workout.author.image} />
           <Link className="author" to={`@${workout.author.username}`}>
             {workout.author.username}
           </Link>
-          <span className="date">
-            {new Date(workout.createdAt).toDateString()}
-          </span>
         </div>
-
-        <div className="pull-xs-right">
+        <div className="card-background">
+          <div className="content">
+            <Link to={`workout/${workout.slug}`} className="preview-link">
+              <div className="card-title">
+                <h6>{workout.title}</h6>
+                <p> {workout.subtitle} </p>
+              </div>
+            </Link>
+          </div>
+          <div className="content-icons">  
+            <div className="flex-halves-one">
+              <p className="fcol">
+                <img className="ui avatar image" src={`/images/warmup_icon.png`} />
+                {workout.exerciseCount[0].value}  
+              </p>
+              <p className="fcol">
+                <img className="ui avatar image" src={`/images/stretch_icon.png`} />
+                {workout.exerciseCount[1].value}  
+              </p>
+            </div>
+            <div className="ui divider"></div>
+            <div className="flex-halves-two">
+              <p className="fcol">
+                <img className="ui avatar image" src={`/images/run_icon.png`} />
+                {workout.exerciseCount[2].value}  
+              </p>
+              <p className="fcol">
+                <img className="ui avatar image" src={`/images/lift_icon.png`} />
+                {workout.exerciseCount[3].value}  
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="extra content">
+          <span className="right floated">
+            <ul className="tag-list">
+              {
+                workout.tagList.map(tag => {
+                  return (
+                    <li key={tag}>
+                      <button 
+                      disabled
+                      className="ui teal basic button">
+                        {tag}
+                      </button>
+                    </li>
+                  )
+                })
+              }
+            </ul>
+          </span>
           <button className={favoriteButtonClass} onClick={handleClick}>
-            <i className="ion-heart"></i> {workout.favoritesCount}
+            <i className="ion-heart"></i> {workout.favoritesCount} likes
           </button>
         </div>
       </div>
-
-      <Link to={`workout/${workout.slug}`} className="preview-link">
-        <h1>{workout.title}</h1>
-        <p>{workout.subtitle}</p>
-        <span>Read more...</span>
-        <ul className="tag-list">
-          {
-            workout.tagList.map(tag => {
-              return (
-                <li className="tag-default tag-pill tag-outline" key={tag}>
-                  {tag}
-                </li>
-              )
-            })
-          }
-        </ul>
-      </Link>
     </div>
   );
 }

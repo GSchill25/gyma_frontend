@@ -35,17 +35,17 @@ const LoggedOutView = props => {
 const LoggedInView = props => {
   if (props.currentUser) {
     return (
-      <ul className="nav navbar-nav pull-xs-right">
+      <ul className="nav navbar-nav">
 
         <li className="nav-item">
           <Link to="" className="nav-link">
-            Home
+            <i className="ion-home"></i>
           </Link>
         </li>
 
         <li className="nav-item">
           <Link to="editor" className="nav-link">
-            <i className="ion-compose"></i>&nbsp;New Post
+            <i className="ion-compose"></i>&nbsp;Create
           </Link>
         </li>
 
@@ -75,11 +75,18 @@ class Header extends React.Component {
   render() {
     return (
       <nav className="navbar navbar-light">
-        <div className="container">
+        <div className="">
 
-          <Link to="/" className="navbar-brand">
+          <Link to="/" className="navbar-branded">
             {this.props.appName.toLowerCase()}
           </Link>
+
+          <button className="ui circular facebook icon button right floated">
+            <i className="facebook icon"></i>
+          </button>
+          <button className="ui circular twitter icon button right floated">
+            <i className="twitter icon"></i>
+          </button>
 
           <LoggedOutView currentUser={this.props.currentUser} />
 

@@ -38,18 +38,12 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div className="home-page">
+      <div className="ui container">
 
         <Banner token={this.props.token} appName={this.props.appName} />
-
-        <div className="container page">
-          <div className="row">
-            <MainView />
-
-            <div className="col-md-3">
-              <div className="sidebar">
-
-                <p>Popular Tags</p>
+        <div className="ui grid">
+            <div className="ui feed">
+              <div className="ui items">
 
                 <Tags
                   tags={this.props.tags}
@@ -57,6 +51,8 @@ class Home extends React.Component {
 
               </div>
             </div>
+          <div>
+            <MainView />       
           </div>
         </div>
 

@@ -20,7 +20,7 @@ const WorkoutList = props => {
   }
 
   return (
-    <div>
+    <div className="ui feed sixteen wide column">
       {
         props.workouts.map(workout => {
           return (

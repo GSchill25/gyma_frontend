@@ -1,3 +1,91 @@
 .ui.grid {
 	width: 100%;
 }
+
+.sr-field.show {
+	display: block;
+}
+
+.sr-field.hide {
+	display: none;
+}
+
+.exercise-btn {
+	float: right;
+}
+
+button.ui.button {
+	font-size: 10px;
+}
+
+.button-size-sm {
+	font-size: 10px !important;
+}
+
+.ui.segment.exercise-form {
+	padding-bottom: 35px !important;
+}
+
+.ion-trash-a {
+	float: right;
+}
+
+.comment-form {
+	margin-top: 20px;
+	width: 80%;
+}
+
+.tag-list {
+	float: right;
+}
+
+.navbar-branded {
+	font-family: "Titillium Web", sans-serif;
+    font-size: 1.5rem !important;
+    padding-top: 0rem !important;
+    margin-right: 2rem !important;
+    color: #446183 !important;
+}
+
+footer.universal {
+	background: #f3f3f3;
+    margin-top: 3rem;
+    padding: 1rem 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.flex-halves-one {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.flex-halves-two {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-title {
+	text-align: center;
+	font-size: 12px;
+}
+
+.card-background {
+	padding-top: 20px;
+	padding-bottom: 10px;
+	background: #f7f8f9;
+}
+
+#root {
+	width: 100%;
+}
+
+body, html { overflow-x:hidden; }
+
+.container {
+	padding-left: 0px!important;
+}
+
+

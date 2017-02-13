@@ -7,26 +7,25 @@ const Comment = props => {
   const show = props.currentUser &&
     props.currentUser.username === comment.author.username;
   return (
-    <div className="card">
-      <div className="card-block">
-        <p className="card-text">{comment.body}</p>
-      </div>
-      <div className="card-footer">
+    <div className="comment">
+      <a className="avatar">
+        <img src={comment.author.image} />
+      </a>
+      <div className="content">
         <Link
           to={`@${comment.author.username}`}
-          className="comment-author">
-          <img src={comment.author.image} className="comment-author-img" />
-        </Link>
-        &nbsp;
-        <Link
-          to={`@${comment.author.username}`}
-          className="comment-author">
+          className="author">
           {comment.author.username}
         </Link>
-        <span className="date-posted">
-          {new Date(comment.createdAt).toDateString()}
-        </span>
+        &nbsp;
+        <div className="metadata">
+          <span className="date">{new Date(comment.createdAt).toDateString()}</span>
+        </div>
+        &nbsp;
         <DeleteButton show={show} slug={props.slug} commentId={comment.id} />
+        <div className="text">
+          {comment.body}
+        </div>
       </div>
     </div>
   );

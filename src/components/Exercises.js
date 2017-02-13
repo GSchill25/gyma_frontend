@@ -62,10 +62,12 @@ class Workout extends React.Component {
                 {
                   this.props.workout.tagList.map(tag => {
                     return (
-                      <li
-                        className="tag-default tag-pill tag-outline"
+                      <li>
+                        <button 
+                        className="ui teal basic button"
                         key={tag}>
-                        {tag}
+                          {tag}
+                        </button>
                       </li>
                     );
                   })

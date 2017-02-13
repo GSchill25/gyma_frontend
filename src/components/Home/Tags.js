@@ -5,7 +5,7 @@ const Tags = props => {
   const tags = props.tags;
   if (tags) {
     return (
-      <div className="tag-list">
+      <span>
         {
           tags.map(tag => {
             const handleClick = ev => {
@@ -14,17 +14,16 @@ const Tags = props => {
             };
 
             return (
-              <a
-                href=""
-                className="tag-default tag-pill"
-                key={tag}
-                onClick={handleClick}>
-                {tag}
-              </a>
+              <button
+                className="ui teal basic button"
+                onClick={handleClick}
+                key={tag}>
+                  {tag}
+              </button>    
             );
           })
         }
-      </div>
+      </span>
     );
   } else {
     return (

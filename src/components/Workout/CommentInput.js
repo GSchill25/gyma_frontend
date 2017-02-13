@@ -29,8 +29,8 @@ class CommentInput extends React.Component {
 
   render() {
     return (
-      <form className="card comment-form" onSubmit={this.createComment}>
-        <div className="card-block">
+      <form className="ui reply form" onSubmit={this.createComment}>
+        <div className="field">
           <textarea className="form-control"
             placeholder="Write a comment..."
             value={this.state.body}
@@ -38,16 +38,12 @@ class CommentInput extends React.Component {
             rows="3">
           </textarea>
         </div>
-        <div className="card-footer">
-          <img
-            src={this.props.currentUser.image}
-            className="comment-author-img" />
           <button
-            className="btn btn-sm btn-primary"
+            className="ui labeled icon button"
             type="submit">
+            <i className="edit icon"></i>
             Post Comment
           </button>
-        </div>
       </form>
     );
   }

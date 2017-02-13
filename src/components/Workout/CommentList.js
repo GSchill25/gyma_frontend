@@ -3,7 +3,8 @@ import React from 'react';
 
 const CommentList = props => {
   return (
-    <div>
+    <div className="ui comments">
+      <h3 className="ui dividing header">Comments</h3>
       {
         props.comments.map(comment => {
           return (
