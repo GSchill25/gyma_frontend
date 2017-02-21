@@ -6,7 +6,7 @@ import React from 'react';
 const ExerciseContainer = props => {
   if (props.currentUser) {
     return (
-      <div className="ui centered grid">
+      <div>
         <div className="sixteen wide mobile six wide computer column">
           <list-errors errors={props.errors}></list-errors>
           <ExerciseInput slug={props.slug} currentUser={props.currentUser} />

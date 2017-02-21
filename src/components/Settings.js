@@ -59,28 +59,26 @@ class SettingsForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.submitForm}>
-        <fieldset>
-
-          <fieldset className="form-group">
+      <form className="ui form" onSubmit={this.submitForm}>
+          <div className="field">
             <input
               className="form-control"
               type="text"
               placeholder="URL of profile picture"
               value={this.state.image}
               onChange={this.updateState('image')} />
-          </fieldset>
+          </div>
 
-          <fieldset className="form-group">
+          <div className="field">
             <input
               className="form-control form-control-lg"
               type="text"
               placeholder="Username"
               value={this.state.username}
               onChange={this.updateState('username')} />
-          </fieldset>
+          </div>
 
-          <fieldset className="form-group">
+          <div className="field">
             <textarea
               className="form-control form-control-lg"
               rows="8"
@@ -88,34 +86,32 @@ class SettingsForm extends React.Component {
               value={this.state.bio}
               onChange={this.updateState('bio')}>
             </textarea>
-          </fieldset>
+          </div>
 
-          <fieldset className="form-group">
+          <div className="field">
             <input
               className="form-control form-control-lg"
               type="email"
               placeholder="Email"
               value={this.state.email}
               onChange={this.updateState('email')} />
-          </fieldset>
+          </div>
 
-          <fieldset className="form-group">
+          <div className="field">
             <input
               className="form-control form-control-lg"
               type="password"
               placeholder="New Password"
               value={this.state.password}
               onChange={this.updateState('password')} />
-          </fieldset>
+          </div>
 
           <button
-            className="btn btn-lg btn-primary pull-xs-right"
+            className="ui button"
             type="submit"
             disabled={this.state.inProgress}>
             Update Settings
           </button>
-
-        </fieldset>
       </form>
     );
   }
@@ -152,7 +148,7 @@ class Settings extends React.Component {
               <hr />
 
               <button
-                className="btn btn-outline-danger"
+                className="ui button inverted red right floated"
                 onClick={this.props.onClickLogout}>
                 Or click here to logout.
               </button>

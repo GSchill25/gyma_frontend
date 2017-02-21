@@ -57,44 +57,42 @@ class Register extends React.Component {
 
               <ListErrors errors={this.props.errors} />
 
-              <form onSubmit={this.submitForm(username, email, password)}>
-                <fieldset>
+              <form className="ui form" onSubmit={this.submitForm(username, email, password)}>
 
-                  <fieldset className="form-group">
+                  <div className="field">
                     <input
                       className="form-control form-control-lg"
                       type="text"
                       placeholder="Username"
                       value={this.props.username}
                       onChange={this.changeUsername} />
-                  </fieldset>
+                  </div>
 
-                  <fieldset className="form-group">
+                  <div className="field">
                     <input
                       className="form-control form-control-lg"
                       type="email"
                       placeholder="Email"
                       value={this.props.email}
                       onChange={this.changeEmail} />
-                  </fieldset>
+                  </div>
 
-                  <fieldset className="form-group">
+                  <div className="field">
                     <input
                       className="form-control form-control-lg"
                       type="password"
                       placeholder="Password"
                       value={this.props.password}
                       onChange={this.changePassword} />
-                  </fieldset>
+                  </div>
 
                   <button
-                    className="btn btn-lg btn-primary pull-xs-right"
+                    className="ui button teal"
                     type="submit"
                     disabled={this.props.inProgress}>
                     Sign in
                   </button>
 
-                </fieldset>
               </form>
             </div>
 

@@ -20,13 +20,13 @@ const WorkoutActions = props => {
 
         <Link
           to={`/editor/${workout.slug}`}
-          className="ui inverted button button-size-sm">
+          className="ui teal button button-size-sm">
           <i className="ion-edit"></i> Edit Workout
         </Link>
 
         <Link
           to={`/add_exercise/${workout.slug}`}
-          className="ui inverted button button-size-sm">
+          className="ui teal button button-size-sm">
           <i className="ion-edit"></i> Add Exercises
         </Link>
 

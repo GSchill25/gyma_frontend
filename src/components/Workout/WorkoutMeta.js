@@ -7,13 +7,13 @@ const WorkoutMeta = props => {
   return (
     <div className="article-meta">
       <Link to={`@${workout.author.username}`}>
-        <img src={workout.author.image} />
+        <img src={workout.author.image} className="ui avatar image" />
+      </Link>
+      <Link to={`@${workout.author.username}`} className="author">
+        {workout.author.username}
       </Link>
 
-      <div className="info">
-        <Link to={`@${workout.author.username}`} className="author">
-          {workout.author.username}
-        </Link>
+      <div className="workout-header-info">  
         <span className="date">
           {new Date(workout.createdAt).toDateString()}
         </span>

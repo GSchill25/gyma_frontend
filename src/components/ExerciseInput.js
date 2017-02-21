@@ -72,6 +72,8 @@ class ExerciseInput extends React.Component {
       this.setState({ reps: '' });
       this.setState({ description: '' });
       this.props.onSubmit(payload);
+      
+      document.getElementsByTagName('footer')[0].scrollIntoView();
     };
   }
 
@@ -83,37 +85,37 @@ class ExerciseInput extends React.Component {
           <i className="circular angle double right icon"></i>
         </h2>
         <form className="ui form" onSubmit={this.createExercise}>
-            <fieldset className="field">
+            <div className="field">
               <Select 
                 options={options} 
                 onChange={this.onSelectChangeType} 
                 value={this.state.etype}
                 placeholder="Exercise Type.." />
-            </fieldset>
+            </div>
 
-            <fieldset className="field">
+            <div className="field">
               <input
                 type="text"
                 placeholder="Exercise Name"
                 value={this.state.name}
                 onChange={this.setName} />
-            </fieldset>
+            </div>
 
-            <fieldset className="field sr-field">
+            <div className="field sr-field">
               <input
                 type="text"
                 placeholder="Sets"
                 value={this.state.sets}
                 onChange={this.setSets} />
-            </fieldset>
+            </div>
 
-            <fieldset className="field sr-field">
+            <div className="field sr-field">
               <input
                 type="text"
                 placeholder="Reps"
                 value={this.state.reps}
                 onChange={this.setReps} />
-            </fieldset>
+            </div>
 
             <textarea className="field"
               placeholder="Write a description..."

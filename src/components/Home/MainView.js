@@ -11,13 +11,13 @@ const YourFeedTab = props => {
     }
 
     return (
-      <li className="nav-item">
+      <div className="item">
         <a  href=""
             className={ props.tab === 'feed' ? 'nav-link active' : 'nav-link' }
             onClick={clickHandler}>
           Your Feed
         </a>
-      </li>
+      </div>
     );
   }
   return null;
@@ -29,14 +29,14 @@ const GlobalFeedTab = props => {
     props.onTabClick('all', agent.Workouts.all());
   };
   return (
-    <li className="nav-item">
+    <div className="item">
       <a
         href=""
         className={ props.tab === 'all' ? 'nav-link active' : 'nav-link' }
         onClick={clickHandler}>
         Global Feed
       </a>
-    </li>
+    </div>
   );
 };
 
@@ -46,11 +46,11 @@ const TagFilterTab = props => {
   }
 
   return (
-    <li className="nav-item">
+    <div className="item">
       <a href="" className="nav-link active">
         <i className="ion-pound"></i> {props.tag}
       </a>
-    </li>
+    </div>
   );
 };
 
@@ -66,9 +66,9 @@ const mapDispatchToProps = dispatch => ({
 
 const MainView = props => {
   return (
-    <div className="ui grid">
-      <div className="feed-toggle">
-        <ul className="nav nav-pills outline-active">
+    <div>
+      <div className="sixteen wide column">
+        <div className="ui top attached tabular menu">
 
           <YourFeedTab
             token={props.token}
@@ -79,7 +79,7 @@ const MainView = props => {
 
           <TagFilterTab tag={props.tag} />
 
-        </ul>
+        </div>
       </div>
 
       <WorkoutList

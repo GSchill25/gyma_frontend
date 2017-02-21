@@ -50,35 +50,31 @@ class Login extends React.Component {
 
               <ListErrors errors={this.props.errors} />
 
-              <form onSubmit={this.submitForm(email, password)}>
-                <fieldset>
-
-                  <fieldset className="form-group">
+              <form className="ui form" onSubmit={this.submitForm(email, password)}>
+                  <div className="field">
                     <input
                       className="form-control form-control-lg"
                       type="email"
                       placeholder="Email"
                       value={email}
                       onChange={this.changeEmail} />
-                  </fieldset>
+                  </div>
 
-                  <fieldset className="form-group">
+                  <div className="field">
                     <input
                       className="form-control form-control-lg"
                       type="password"
                       placeholder="Password"
                       value={password}
                       onChange={this.changePassword} />
-                  </fieldset>
+                  </div>
 
                   <button
-                    className="btn btn-lg btn-primary pull-xs-right"
+                    className="ui button teal"
                     type="submit"
                     disabled={this.props.inProgress}>
                     Sign in
                   </button>
-
-                </fieldset>
               </form>
             </div>
 

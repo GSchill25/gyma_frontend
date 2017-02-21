@@ -24,10 +24,10 @@ const mapDispatchToProps = dispatch => ({
 
 class Home extends React.Component {
   componentWillMount() {
-    const tab = this.props.token ? 'feed' : 'all';
-    const workoutsPromise = this.props.token ?
-      agent.Workouts.feed() :
-      agent.Workouts.all();
+    //const tab = this.props.token ? 'feed' : 'all';
+    //const workoutsPromise = this.props.token ? agent.Workouts.feed() : agent.Workouts.all();
+    const tab = 'all';
+    const workoutsPromise = agent.Workouts.all();
 
     this.props.onLoad(tab, Promise.all([agent.Tags.getAll(), workoutsPromise]));
   }
@@ -38,24 +38,16 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div className="ui container">
+      <div>
+          <div className="ui items">
+            <Tags
+              tags={this.props.tags}
+              onClickTag={this.props.onClickTag} />
 
-        <Banner token={this.props.token} appName={this.props.appName} />
-        <div className="ui grid">
-            <div className="ui feed">
-              <div className="ui items">
-
-                <Tags
-                  tags={this.props.tags}
-                  onClickTag={this.props.onClickTag} />
-
-              </div>
-            </div>
+          </div>
           <div>
             <MainView />       
           </div>
-        </div>
-
       </div>
     );
   }

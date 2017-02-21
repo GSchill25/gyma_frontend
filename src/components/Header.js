@@ -6,27 +6,21 @@ import { Link } from 'react-router';
 const LoggedOutView = props => {
   if (!props.currentUser) {
     return (
-      <ul className="nav navbar-nav pull-xs-right">
+      <div className="ui three item menu">
 
-        <li className="nav-item">
-          <Link to="/" className="nav-link">
+          <Link to="/" className="item">
             Home
           </Link>
-        </li>
 
-        <li className="nav-item">
-          <Link to="login" className="nav-link">
+          <Link to="login" className="item">
             Sign in
           </Link>
-        </li>
 
-        <li className="nav-item">
-          <Link to="register" className="nav-link">
+          <Link to="register" className="item">
             Sign up
           </Link>
-        </li>
 
-      </ul>
+      </div>
     );
   }
   return null;
@@ -35,36 +29,26 @@ const LoggedOutView = props => {
 const LoggedInView = props => {
   if (props.currentUser) {
     return (
-      <ul className="nav navbar-nav">
-
-        <li className="nav-item">
-          <Link to="" className="nav-link">
+      <div className="ui four item menu">
+          <Link to="" className="item">
             <i className="ion-home"></i>
           </Link>
-        </li>
 
-        <li className="nav-item">
-          <Link to="editor" className="nav-link">
+          <Link to="editor" className="item">
             <i className="ion-compose"></i>&nbsp;Create
           </Link>
-        </li>
 
-        <li className="nav-item">
-          <Link to="settings" className="nav-link">
+          <Link to="settings" className="item">
             <i className="ion-gear-a"></i>&nbsp;Settings
           </Link>
-        </li>
 
-        <li className="nav-item">
           <Link
             to={`@${props.currentUser.username}`}
-            className="nav-link">
-            <img src={props.currentUser.image} className="user-pic" />
+            className="item">
+            <img src={props.currentUser.image} className="ui avatar image" />
             {props.currentUser.username}
           </Link>
-        </li>
-
-      </ul>
+      </div>
     );
   }
 

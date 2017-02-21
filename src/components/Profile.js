@@ -11,7 +11,7 @@ const EditProfileSettings = props => {
     return (
       <Link
         to="settings"
-        className="btn btn-sm btn-outline-secondary action-btn">
+        className="ui button tiny">
         <i className="ion-gear-a"></i> Edit Profile Settings
       </Link>
     );
@@ -24,11 +24,11 @@ const FollowUserButton = props => {
     return null;
   }
 
-  let classes = 'btn btn-sm action-btn';
+  let classes = 'ui button';
   if (props.user.following) {
-    classes += ' btn-secondary';
+    classes += 'teal';
   } else {
-    classes += ' btn-outline-secondary';
+    classes += 'teal inverted';
   }
 
   const handleClick = ev => {
@@ -84,23 +84,23 @@ class Profile extends React.Component {
 
   renderTabs() {
     return (
-      <ul className="nav nav-pills outline-active">
-        <li className="nav-item">
+      <div className="ui top attached tabular menu">
+        <div className="item">
           <Link
             className="nav-link active"
             to={`@${this.props.profile.username}`}>
             My Workouts
           </Link>
-        </li>
+        </div>
 
-        <li className="nav-item">
+        <div className="item">
           <Link
             className="nav-link"
             to={`@${this.props.profile.username}/favorites`}>
             Favorited Workouts
           </Link>
-        </li>
-      </ul>
+        </div>
+      </div>
     );
   }
 
@@ -119,10 +119,10 @@ class Profile extends React.Component {
         <div className="user-info">
           <div className="container">
             <div className="row">
-              <div className="col-xs-12 col-md-10 offset-md-1">
+              <div className="ui raised segment">
 
-                <img src={profile.image} className="user-img" />
-                <h4>{profile.username}</h4>
+                <img src={profile.image} className="ui tiny centered circular image" />
+                <h4>@{profile.username}</h4>
                 <p>{profile.bio}</p>
 
                 <EditProfileSettings isUser={isUser} />

@@ -14,13 +14,13 @@ const WorkoutList = props => {
   if (props.workouts.length === 0) {
     return (
       <div className="article-preview">
-        No workouts are here... yet.
+        No workouts are here... yet. Follow some other Gymstirs to populate this feed.
       </div>
     );
   }
 
   return (
-    <div className="ui feed sixteen wide column">
+    <div className="ui feed">
       {
         props.workouts.map(workout => {
           return (

@@ -46,6 +46,19 @@ class Workout extends React.Component {
           <div className="container">
 
             <h1>{this.props.workout.title}</h1>
+            <div className="tag-list">
+                {
+                  this.props.workout.tagList.map(tag => {
+                    return (
+                        <button 
+                        className="ui teal basic button"
+                        key={tag}>
+                          {tag}
+                        </button>
+                    );
+                  })
+                }
+            </div>
             <WorkoutMeta
               workout={this.props.workout}
               canModify={canModify} />
@@ -54,28 +67,6 @@ class Workout extends React.Component {
         </div>
 
         <div className="container page">
-
-          <div className="row article-content">
-            <div className="col-xs-12">
-
-              <ul className="tag-list">
-                {
-                  this.props.workout.tagList.map(tag => {
-                    return (
-                      <li>
-                        <button 
-                        className="ui teal basic button"
-                        key={tag}>
-                          {tag}
-                        </button>
-                      </li>
-                    );
-                  })
-                }
-              </ul>
-
-            </div>
-          </div>
 
           <hr />
 

@@ -92,28 +92,27 @@ class Editor extends React.Component {
 
               <ListErrors errors={this.props.errors}></ListErrors>
 
-              <form>
-                <fieldset>
+              <form className="ui form">
 
-                  <fieldset className="form-group">
+                  <div className="field">
                     <input
                       className="form-control form-control-lg"
                       type="text"
                       placeholder="Workout Title"
                       value={this.props.title}
                       onChange={this.changeTitle} />
-                  </fieldset>
+                  </div>
 
-                  <fieldset className="form-group">
+                  <div className="field">
                     <input
                       className="form-control"
                       type="text"
                       placeholder="What's this workout about?"
                       value={this.props.subtitle}
                       onChange={this.changeSubtitle} />
-                  </fieldset>
+                  </div>
 
-                  <fieldset className="form-group">
+                  <div className="field">
                     <input
                       className="form-control"
                       type="text"
@@ -126,27 +125,27 @@ class Editor extends React.Component {
                       {
                         (this.props.tagList || []).map(tag => {
                           return (
-                            <span className="tag-default tag-pill" key={tag}>
+                            <span className="ui label" key={tag}>
                               <i  className="ion-close-round"
                                   onClick={this.removeTagHandler(tag)}>
                               </i>
-                              {tag}
+                              &nbsp;{tag}
                             </span>
                           );
                         })
                       }
                     </div>
-                  </fieldset>
+                  </div>
 
                   <button
-                    className="btn btn-lg pull-xs-right btn-primary"
+                    className="ui button teal"
                     type="button"
                     disabled={this.props.inProgress}
                     onClick={this.submitForm}>
                     Publish Workout
                   </button>
 
-                </fieldset>
+                
               </form>
 
             </div>

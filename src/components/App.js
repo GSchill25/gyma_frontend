@@ -46,7 +46,7 @@ class App extends React.Component {
       );
     }
     return (
-      <div className="ui container">
+      <div className="ui grid container">
         <Header
           appName={this.props.appName}
           currentUser={this.props.currentUser} />

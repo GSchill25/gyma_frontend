@@ -22,8 +22,8 @@ const mapDispatchToProps = dispatch => ({
 const WorkoutPreview = props => {
   const workout = props.workout;
   const favoriteButtonClass = workout.favorited ?
-    FAVORITED_CLASS :
-    NOT_FAVORITED_CLASS;
+    "ui label favorite" :
+    "ui label";
 
   const handleClick = ev => {
     ev.preventDefault();
@@ -34,9 +34,13 @@ const WorkoutPreview = props => {
     }
   };
 
+  const cardWidth = {
+    width: window.innerWidth + "px"
+  };
+
   return (
-    <div className="event">
-      <div className="ui card">
+    <div className="event sixteen wide column">
+      <div className="ui card" style={cardWidth}>
         <div className="content">
           <div className="right floated meta"> 
             {new Date(workout.createdAt).toDateString()}
@@ -50,7 +54,7 @@ const WorkoutPreview = props => {
           <div className="content">
             <Link to={`workout/${workout.slug}`} className="preview-link">
               <div className="card-title">
-                <h6>{workout.title}</h6>
+                <h3>{workout.title}</h3>
                 <p> {workout.subtitle} </p>
               </div>
             </Link>
@@ -58,22 +62,22 @@ const WorkoutPreview = props => {
           <div className="content-icons">  
             <div className="flex-halves-one">
               <p className="fcol">
-                <img className="ui avatar image" src={`/images/warmup_icon.png`} />
+                <img className="ui avatar image preview" src={`/images/warmup_icon.png`} />
                 {workout.exerciseCount[0].value}  
               </p>
               <p className="fcol">
-                <img className="ui avatar image" src={`/images/stretch_icon.png`} />
+                <img className="ui avatar image preview" src={`/images/stretch_icon.png`} />
                 {workout.exerciseCount[1].value}  
               </p>
             </div>
             <div className="ui divider"></div>
             <div className="flex-halves-two">
               <p className="fcol">
-                <img className="ui avatar image" src={`/images/run_icon.png`} />
+                <img className="ui avatar image preview" src={`/images/run_icon.png`} />
                 {workout.exerciseCount[2].value}  
               </p>
               <p className="fcol">
-                <img className="ui avatar image" src={`/images/lift_icon.png`} />
+                <img className="ui avatar image preview" src={`/images/lift_icon.png`} />
                 {workout.exerciseCount[3].value}  
               </p>
             </div>
@@ -81,25 +85,24 @@ const WorkoutPreview = props => {
         </div>
         <div className="extra content">
           <span className="right floated">
-            <ul className="tag-list">
+            <div className="tag-list">
               {
                 workout.tagList.map(tag => {
                   return (
-                    <li key={tag}>
                       <button 
+                      key={tag}
                       disabled
                       className="ui teal basic button">
                         {tag}
                       </button>
-                    </li>
                   )
                 })
               }
-            </ul>
+            </div>
           </span>
-          <button className={favoriteButtonClass} onClick={handleClick}>
-            <i className="ion-heart"></i> {workout.favoritesCount} likes
-          </button>
+          <a className={favoriteButtonClass} onClick={handleClick}>
+            <i className="heart icon"></i> {workout.favoritesCount} likes
+          </a>
         </div>
       </div>
     </div>
