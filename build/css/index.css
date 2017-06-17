@@ -47,6 +47,10 @@ button.ui.button {
     color: #446183 !important;
 }
 
+.navbar {
+	margin-bottom: 15px;
+}
+
 footer.universal {
 	background: #f3f3f3;
     margin-top: 3rem;
@@ -78,14 +82,32 @@ footer.universal {
 	background: #f7f8f9;
 }
 
+.banner-workout {
+	background: #f7f8f9
+}
+
 #root {
 	width: 100%;
 }
 
 body, html { overflow-x:hidden; }
 
-.container {
-	padding-left: 0px!important;
+a.nav-link.active {
+	box-shadow: 0px 2px 0px teal;
 }
 
+img.ui.avatar.image.preview {
+	font-size: 25px;
+}
 
+.ui.label.favorite {
+	background: #00b5ad;
+}
+
+h3, p {
+	color: #000;
+}
+
+.workout-header-info {
+	margin-bottom: 12px;
+}

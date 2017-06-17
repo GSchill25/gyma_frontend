@@ -34,8 +34,12 @@ const WorkoutPreview = props => {
     }
   };
 
-  const cardWidth = {
-    width: window.innerWidth + "px"
+
+  var cardWidth = {};
+  if(window.innerWidth > 600) {
+    cardWidth.width = "520px";
+  } else {
+    cardWidth.width = window.innerWidth + "px"
   };
 
   return (
