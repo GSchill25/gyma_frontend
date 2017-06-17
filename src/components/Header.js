@@ -31,22 +31,21 @@ const LoggedInView = props => {
     return (
       <div className="ui four item menu">
           <Link to="" className="item">
-            <i className="ion-home"></i>
+            <i className="ion-home header"></i>
           </Link>
 
           <Link to="editor" className="item">
-            <i className="ion-compose"></i>&nbsp;Create
+            <i className="ion-compose header"></i>
           </Link>
 
           <Link to="settings" className="item">
-            <i className="ion-gear-a"></i>&nbsp;Settings
+            <i className="ion-gear-a header"></i>
           </Link>
 
           <Link
             to={`@${props.currentUser.username}`}
             className="item">
             <img src={props.currentUser.image} className="ui avatar image" />
-            {props.currentUser.username}
           </Link>
       </div>
     );
@@ -59,23 +58,29 @@ class Header extends React.Component {
   render() {
     return (
       <nav className="navbar navbar-light">
-        <div className="">
+        <div className="social-links-header">
 
           <Link to="/" className="navbar-branded">
-            {this.props.appName.toLowerCase()}
+            {this.props.appName}
           </Link>
 
+          <button className="ui circular instagram icon button right floated">
+            <i className="instagram icon"></i>
+          </button>
+          <button className="ui circular youtube icon button right floated">
+            <i className="youtube icon"></i>
+          </button>
           <button className="ui circular facebook icon button right floated">
             <i className="facebook icon"></i>
           </button>
           <button className="ui circular twitter icon button right floated">
             <i className="twitter icon"></i>
           </button>
+        </div>
 
           <LoggedOutView currentUser={this.props.currentUser} />
 
           <LoggedInView currentUser={this.props.currentUser} />
-        </div>
       </nav>
     );
   }

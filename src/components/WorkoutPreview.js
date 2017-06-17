@@ -58,31 +58,31 @@ const WorkoutPreview = props => {
           <div className="content">
             <Link to={`workout/${workout.slug}`} className="preview-link">
               <div className="card-title">
-                <h3>{workout.title}</h3>
-                <p> {workout.subtitle} </p>
+                <h3 className="card-title-text">{workout.title}</h3>
+                <i><u>Explore</u></i>
               </div>
             </Link>
           </div>
           <div className="content-icons">  
             <div className="flex-halves-one">
               <p className="fcol">
-                <img className="ui avatar image preview" src={`/images/warmup_icon.png`} />
-                {workout.exerciseCount[0].value}  
+                <img className="ui mini rounded image" src={`/images/warmup_icon.png`} />
+                <div className="exercise-count">{workout.exerciseCount[0].value}</div>
               </p>
               <p className="fcol">
-                <img className="ui avatar image preview" src={`/images/stretch_icon.png`} />
-                {workout.exerciseCount[1].value}  
+                <img className="ui mini rounded image" src={`/images/stretch_icon.png`} />
+                <div className="exercise-count">{workout.exerciseCount[1].value}</div>
               </p>
             </div>
             <div className="ui divider"></div>
             <div className="flex-halves-two">
               <p className="fcol">
-                <img className="ui avatar image preview" src={`/images/run_icon.png`} />
-                {workout.exerciseCount[2].value}  
+                <img className="ui mini rounded image" src={`/images/run_icon.png`} />
+                <div className="exercise-count">{workout.exerciseCount[2].value}</div>
               </p>
               <p className="fcol">
-                <img className="ui avatar image preview" src={`/images/lift_icon.png`} />
-                {workout.exerciseCount[3].value}  
+                <img className="ui mini rounded image" src={`/images/lift_icon.png`} />
+                <div className="exercise-count">{workout.exerciseCount[3].value}</div>
               </p>
             </div>
           </div>

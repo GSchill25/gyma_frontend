@@ -1,7 +1,7 @@
 'use strict';
 
 const defaultState = {
-  appName: 'Gymsta',
+  appName: 'Gymstir',
   token: null,
   viewChangeCounter: 0
 };
